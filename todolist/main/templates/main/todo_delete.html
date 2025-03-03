@@ -1,0 +1,14 @@
+{% extends 'main/base.html' %}
+
+{% block title %}DELETE{% endblock %}
+
+{% block content %}
+     <h1>Удалить задачу</h1>
+    <p>Вы уверены, что хотите удалить задачу "{{ object }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn-delete">Удалить</button>
+    </form>
+<br>
+    <a href="{% url 'home' %}" class="btn-good">Отмена</a>
+{% endblock %}

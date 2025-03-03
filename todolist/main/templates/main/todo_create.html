@@ -1,0 +1,16 @@
+{% extends 'main/base.html' %}
+
+{% block title %}CREATE{% endblock %}
+
+{% block content %}
+     <h1>ДОБАВЛЕНИЕ ЗАДАЧИ</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <br>
+        <br>
+        <button type="submit">Сохранить</button>
+    </form>
+<br>
+    <a href="{% url 'home' %}" class="btn-good">Назад к списку</a>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Home Page{% endblock %}
+
+{% block content %}
+    <h2>TO DO LIST</h2>
+    <a href="{% url 'todo_create' %}" class="btn-good">Добавить задачу</a>
+    <br><br>
+    {% for todo in todos %}
+        <div>
+            <h3>{{ todo.title }}</h3>
+            <p>Создан: {{ todo.created_at|date:"d.m.Y H:i" }}</p>
+            <br>
+            <a href="{% url 'todo_edit' todo.pk %}" class="btn-good">Редактировать</a>
+            <a href="{% url 'todo_delete' todo.pk %}" class="btn-delete">Удалить</a>
+        </div>
+<br>
+        <hr>
+    {% empty %}
+        <p>Нет задач</p>
+    {% endfor %}
+{% endblock %}
